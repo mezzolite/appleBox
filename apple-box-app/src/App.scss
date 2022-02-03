@@ -1,0 +1,24 @@
+$green-apple: #a9e190;
+$fiery-rose: #ef626c;
+$raisin-black: #1e1e24;
+
+.App {
+  text-align: center;
+  background-color: $green-apple;
+  color: $raisin-black;
+  margin: 0 1% 1%;
+  border: 2px solid $green-apple;
+  border-radius: 5px;
+  // min-height: 90vh;
+}
+
+.App-header {
+  display: flex;
+  align-content: space-between;
+  background-color: #fff;
+
+  h1 {
+    padding: 0 20px;
+    color: $green-apple;
+  }
+}
