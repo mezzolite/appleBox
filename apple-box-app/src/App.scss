@@ -9,6 +9,8 @@ $raisin-black: #1e1e24;
   margin: 0 1% 1%;
   border: 5px solid $green-apple;
   border-radius: 5px;
+  padding-bottom: 20px;
+
   // min-height: 90vh;
 }
 
@@ -16,9 +18,18 @@ $raisin-black: #1e1e24;
   display: flex;
   align-content: space-between;
   background-color: #fff;
+  text-align: left;
+}
 
+.App-titles {
   h1 {
     padding: 0 20px;
+    color: $green-apple;
+  }
+
+  h4 {
+    padding: 0 20px;
+    margin-top: -20px;
     color: $green-apple;
   }
 }

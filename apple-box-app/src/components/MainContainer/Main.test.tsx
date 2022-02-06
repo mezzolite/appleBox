@@ -5,7 +5,9 @@ import Main from './Main';
 describe('Main Component', () => {
   it('should render with task instruction', () => {
     render(<Main />);
-    const taskInstruction = screen.getByText('Pick a task');
+    const taskInstruction = screen.getByText(
+      'To start, pick out task criteria'
+    );
     expect(taskInstruction).toBeInTheDocument();
   });
 });

@@ -36,7 +36,6 @@ describe('UseFetchTask', () => {
 
     // it('should fetch the task and set loading to false', async () => {
     //   const response = mockedAxios.get.mockResolvedValue(mockTask);
-    //   console.log(response);
     //   const { result, waitForNextUpdate } = renderHook(() =>
     //     useFetchTask(true, jest.fn(), '')
     //   );

@@ -5,6 +5,8 @@ import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
+import './style.scss';
+
 type TaskTypeSelectorProps = {
   taskType: string;
   setTaskType: React.Dispatch<React.SetStateAction<string>>;
@@ -21,13 +23,14 @@ export default function TaskTypeSelector({
   return (
     <div>
       <FormControl sx={{ m: 1, minWidth: 50 }}>
-        <InputLabel id="task-type-label">Type of Task</InputLabel>
+        <FormHelperText>
+          Please select what type of task you'd like to do
+        </FormHelperText>
         <Select
-          labelId="task-type-label"
           id="task-type-helper"
           value={taskType}
-          label="Type of Task"
           onChange={handleChange}
+          color="success"
         >
           <MenuItem value="">
             <em>None</em>
@@ -42,9 +45,6 @@ export default function TaskTypeSelector({
           <MenuItem value="music">Music</MenuItem>
           <MenuItem value="busywork">Busywork</MenuItem>
         </Select>
-        <FormHelperText>
-          Please select what type of task you'd like to do
-        </FormHelperText>
       </FormControl>
     </div>
   );

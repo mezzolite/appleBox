@@ -2,6 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import './style.scss';
+import { FormControl, FormHelperText } from '@mui/material';
 
 function valuetext(value: number) {
   if (value === 0.2) {
@@ -21,7 +22,6 @@ function valuetext(value: number) {
   }
   return 'Free';
 }
-console.log('value text', valuetext(0.4));
 
 export default function TaskPriceSlider({
   setPrice,
@@ -37,7 +37,8 @@ export default function TaskPriceSlider({
   };
 
   return (
-    <Box sx={{ width: 300 }}>
+    <FormControl sx={{ m: 1, minWidth: 300 }}>
+      <FormHelperText>Please select price</FormHelperText>
       <Slider
         aria-label="Price"
         defaultValue={0}
@@ -48,8 +49,8 @@ export default function TaskPriceSlider({
         marks
         min={0}
         max={1}
-        style={{ color: 'green' }}
+        style={{ color: '#ef626c' }}
       />
-    </Box>
+    </FormControl>
   );
 }

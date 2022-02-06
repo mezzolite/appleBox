@@ -17,7 +17,6 @@ const TaskSearch = () => {
   const [taskType, setTaskType] = React.useState<string>('');
   const [participants, setParticipants] = React.useState<number>(1);
   const [price, setPrice] = React.useState<number>(0);
-  console.log('taskType', taskType);
 
   const { loading, task, error } = useFetchTask(
     shouldFetch,
@@ -40,10 +39,12 @@ const TaskSearch = () => {
     setShowTask(true);
   };
   return (
-    <div>
-      <TaskTypeSelector taskType={taskType} setTaskType={setTaskType} />
-      <TaskParticipantsSlider setParticipants={setParticipants} />
-      <TaskPriceSlider setPrice={setPrice} />
+    <div className="SearchContainer">
+      <div className="TaskSelectors">
+        <TaskTypeSelector taskType={taskType} setTaskType={setTaskType} />
+        <TaskParticipantsSlider setParticipants={setParticipants} />
+        <TaskPriceSlider setPrice={setPrice} />
+      </div>
       <Button
         variant="contained"
         onClick={() => {

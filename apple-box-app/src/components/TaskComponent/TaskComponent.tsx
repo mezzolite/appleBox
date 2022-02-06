@@ -1,5 +1,6 @@
 import React from 'react';
 import { Task as TaskType } from '../../types/TaskType';
+import './style.scss';
 
 type TaskProp = {
   isLoading: boolean;
@@ -9,9 +10,9 @@ type TaskProp = {
 const TaskComponent = ({ isLoading, task }: TaskProp) => {
   const activity = task?.activity;
   return (
-    <div>
-      {task && task.error && <div>{task.error}</div>}
-      {activity && !isLoading && <div>{activity} </div>}
+    <div className="TaskContainer">
+      {task && task.error && <div className="TaskContent">{task.error}</div>}
+      {activity && !isLoading && <div className="TaskContent">{activity} </div>}
     </div>
   );
 };

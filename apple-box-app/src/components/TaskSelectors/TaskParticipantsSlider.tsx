@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
+import { FormControl, FormHelperText } from '@mui/material';
 
 function valuetext(value: number) {
   return `${value}`;
@@ -20,7 +21,8 @@ export default function TaskParticipantsSlider({
   };
 
   return (
-    <Box sx={{ width: 300 }}>
+    <FormControl sx={{ m: 1, minWidth: 300 }}>
+      <FormHelperText>Please select number of participants</FormHelperText>
       <Slider
         aria-label="Number of Participants"
         defaultValue={1}
@@ -31,7 +33,8 @@ export default function TaskParticipantsSlider({
         marks
         min={1}
         max={5}
+        style={{ color: '#ef626c' }}
       />
-    </Box>
+    </FormControl>
   );
 }
