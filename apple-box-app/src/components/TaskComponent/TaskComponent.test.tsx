@@ -1,9 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import TaskComponent from './TaskComponent';
-import useFetchTask from '../../requests/useFetchTask';
-
-jest.mock('../../requests/useFetchTask');
 
 const mockTask = {
   activity: 'Tell a jest',
@@ -15,14 +12,7 @@ const mockTask = {
 
 describe('Task Component', () => {
   it('should render with activity', () => {
-    const mockUseFetchTask = useFetchTask as jest.MockedFunction<
-      typeof useFetchTask
-    >;
-    mockUseFetchTask.mockImplementation(() => ({
-      loading: false,
-      task: mockTask,
-    }));
-    render(<TaskComponent />);
+    render(<TaskComponent isLoading={false} task={mockTask} />);
     const activity = screen.getByText('Tell a jest');
     expect(activity).toBeInTheDocument();
   });

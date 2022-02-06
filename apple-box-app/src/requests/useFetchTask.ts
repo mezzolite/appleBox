@@ -2,13 +2,16 @@ import React, { useEffect } from 'react';
 import { Task } from '../types/TaskType';
 import axios from 'axios';
 
-async function fetchTask(): Promise<Task> {
+export async function fetchTask(): Promise<Task> {
   const route = 'http://www.boredapi.com/api/activity/';
   const response = await axios(route);
   return response.data;
 }
 
-export default function useFetchTask(): {
+export function useFetchTask(
+  shouldFetch: boolean,
+  setShouldFetch: React.Dispatch<React.SetStateAction<boolean>>
+): {
   loading: boolean;
   task: Task | undefined;
 } {
@@ -16,16 +19,17 @@ export default function useFetchTask(): {
   const [task, setTask] = React.useState<Task | undefined>();
 
   useEffect(() => {
-    async function getData() {
+    if (shouldFetch) {
       setLoading(true);
-      const taskData = await fetchTask();
-      if (taskData) {
-        setTask(taskData);
-      }
-      setLoading(false);
+      fetchTask().then(taskData => {
+        if (taskData) {
+          setTask(taskData);
+        }
+        setShouldFetch(false);
+        setLoading(false);
+      });
     }
-    void getData();
-  }, []);
+  }, [shouldFetch, setShouldFetch]);
 
   return { loading, task };
 }
