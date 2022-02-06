@@ -1,6 +1,8 @@
 import React from 'react';
 import { renderHook, act } from '@testing-library/react-hooks';
-import * as allFetchFunctions from './useFetchTask';
+import { useFetchTask, fetchTask } from './useFetchTask';
+import axios from 'axios';
+import { mocked } from 'jest-mock';
 
 const mockTask = {
   activity: 'Tell a jest',
@@ -12,35 +14,39 @@ const mockTask = {
 
 jest.mock('axios');
 
-// jest.spyOn(allFetchFunctions, 'fetchTask');
-// const mockFetchTask = allFetchFunctions.fetchTask as jest.MockedFunction<
-//   typeof allFetchFunctions.fetchTask
-// >;
-// mockFetchTask.mockResolvedValue(() => {
-//   mockTask;
-// });
+const mockedAxios = mocked(axios, true);
 
 describe('UseFetchTask', () => {
-  it('initial data state is loading and data empty', () => {
-    const { result } = renderHook(() =>
-      allFetchFunctions.useFetchTask(true, jest.fn())
-    );
-
-    expect(result.current).toStrictEqual({ loading: true, task: undefined });
+  describe('fetchTask', () => {
+    it('should add a type to options if a type is passed in', () => {
+      const route = 'http://www.boredapi.com/api/activity/';
+      fetchTask('recreational', 1, 0);
+      expect(mockedAxios).toHaveBeenCalledWith(route, { type: 'recreational' });
+    });
   });
 
-  // it('should fetch the task and set loading to false', async () => {
-  //   const { result, waitForNextUpdate } = renderHook(() =>
-  //     allFetchFunctions.useFetchTask(true, jest.fn())
-  //   );
+  describe('useFetchTask', () => {
+    it('initial data state is loading and data empty', () => {
+      const { result } = renderHook(() =>
+        useFetchTask(true, jest.fn(), '', 1, 0)
+      );
 
-  //   console.log('fetchTask', allFetchFunctions.fetchTask());
+      expect(result.current).toStrictEqual({ loading: true, task: undefined });
+    });
 
-  //   await waitForNextUpdate();
+    // it('should fetch the task and set loading to false', async () => {
+    //   const response = mockedAxios.get.mockResolvedValue(mockTask);
+    //   console.log(response);
+    //   const { result, waitForNextUpdate } = renderHook(() =>
+    //     useFetchTask(true, jest.fn(), '')
+    //   );
 
-  //   expect(result.current).toStrictEqual({
-  //     loading: false,
-  //     task: mockTask,
-  //   });
-  // });
+    //   await waitForNextUpdate();
+
+    //   expect(result.current).toStrictEqual({
+    //     loading: false,
+    //     task: mockTask,
+    //   });
+    // });
+  });
 });

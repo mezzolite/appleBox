@@ -21,6 +21,7 @@ describe('TaskSearch Component', () => {
     mockUseFetchTask.mockImplementation(() => ({
       loading: false,
       task: mockTask,
+      error: null,
     }));
 
     render(<TaskSearch />);
@@ -36,6 +37,7 @@ describe('TaskSearch Component', () => {
     mockUseFetchTask.mockImplementation(() => ({
       loading: false,
       task: mockTask,
+      error: null,
     }));
 
     render(<TaskSearch />);

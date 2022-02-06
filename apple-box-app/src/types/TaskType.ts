@@ -4,4 +4,5 @@ export interface Task {
   type: string;
   participants: number;
   price: number;
+  error?: string;
 }
