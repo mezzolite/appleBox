@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
-// import { BrowserRouter as Router } from 'react-router-dom';
 import Main from './components/MainContainer/Main';
+import UserHeader from './components/UserHeader/UserHeader';
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
           <h1>AppleBox</h1>
           <h4>A task based adventure</h4>
         </div>
+        <UserHeader />
       </header>
       <Main />
     </div>

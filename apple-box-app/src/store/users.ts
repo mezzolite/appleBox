@@ -35,6 +35,6 @@ function getCurrentItem(state: RootState): User | undefined {
   }
 }
 
-export const UsersSelectors = { ...getCurrentItem };
+export const UsersSelectors = { getCurrentItem };
 export const UsersActions = users.actions;
 export default users.reducer;

@@ -10,11 +10,11 @@ $raisin-black: #1e1e24;
 
 .App-header {
   display: flex;
-  align-content: space-between;
   background-color: #fff;
   text-align: left;
   border: 5px solid $green-apple;
   border-radius: 5px;
+  justify-content: space-between;
 }
 
 .App-titles {

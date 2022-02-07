@@ -26,7 +26,7 @@ describe('UseFetchTask', () => {
   });
 
   describe('useFetchTask', () => {
-    it('initial data state is loading and data empty', () => {
+    it('should have an initial data state as loading and data empty', () => {
       const { result } = renderHook(() =>
         useFetchTask(true, jest.fn(), '', 1, 0)
       );

@@ -1,0 +1,13 @@
+$green-apple: #a9e190;
+$fiery-rose: #ef626c;
+$raisin-black: #1e1e24;
+
+.UserHeaderContainer {
+  color: $fiery-rose;
+  padding: 0 20px;
+  margin-top: 16px;
+
+  p {
+    margin-top: -20px;
+  }
+}
