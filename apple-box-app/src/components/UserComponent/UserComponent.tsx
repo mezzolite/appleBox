@@ -2,6 +2,8 @@ import React from 'react';
 import { Button } from '@mui/material';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { UsersActions } from '../../store/users';
+import { useAppDispatch } from '../../store/hooks';
 
 import './style.scss';
 
@@ -11,14 +13,17 @@ type UserComponentProps = {
 export default function UserComponent({
   setShowTaskSearch,
 }: UserComponentProps) {
+  const dispatch = useAppDispatch();
   const [username, setUsername] = React.useState<string>('');
   const [zipcode, setZipcode] = React.useState<string>();
 
   const handleSubmit = () => {
-    //ToDo: add user info to state on submit
+    if (username && zipcode) {
+      dispatch(UsersActions.setCurrentUsername(username));
+      dispatch(UsersActions.setCurrentZipcode(zipcode));
+    }
     setShowTaskSearch(true);
   };
-  console.log('submit userinfo', username, zipcode);
 
   return (
     <div>
