@@ -1,3 +1,13 @@
+$green-apple: #a9e190;
+$fiery-rose: #ef626c;
+$raisin-black: #1e1e24;
+
 h4 {
-  color: #fff;
+  // color: #fff;
+}
+
+.MainContainer {
+  border: 5px solid $green-apple;
+  border-radius: 5px;
+  padding-bottom: 20px;
 }

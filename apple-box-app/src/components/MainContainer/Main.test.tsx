@@ -6,7 +6,7 @@ describe('Main Component', () => {
   it('should render with task instruction', () => {
     render(<Main />);
     const taskInstruction = screen.getByText(
-      'To start, pick out task criteria'
+      'Please add a username and zipcode to start'
     );
     expect(taskInstruction).toBeInTheDocument();
   });

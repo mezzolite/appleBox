@@ -4,14 +4,8 @@ $raisin-black: #1e1e24;
 
 .App {
   text-align: center;
-  background-color: $green-apple;
   color: $raisin-black;
   margin: 0 1% 1%;
-  border: 5px solid $green-apple;
-  border-radius: 5px;
-  padding-bottom: 20px;
-
-  // min-height: 90vh;
 }
 
 .App-header {
@@ -19,6 +13,8 @@ $raisin-black: #1e1e24;
   align-content: space-between;
   background-color: #fff;
   text-align: left;
+  border: 5px solid $green-apple;
+  border-radius: 5px;
 }
 
 .App-titles {
