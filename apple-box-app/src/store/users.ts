@@ -27,7 +27,7 @@ const users = createSlice({
 });
 
 function getCurrentItem(state: RootState): User | undefined {
-  if (state.users.username) {
+  if (state.users?.username) {
     return {
       username: state.users.username,
       zipcode: state.users.zipcode,
